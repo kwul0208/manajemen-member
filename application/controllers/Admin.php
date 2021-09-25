@@ -82,4 +82,19 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('flash', 'dihapus');
         redirect('Admin/manage');
     }
+
+
+
+    // kelola Admin
+    public function kelolaAdmin()
+    {
+        $data['title'] = "Kelola Admin";
+        $data['admins'] = $this->Data_model->getAdmins();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/navbar');
+        $this->load->view('templates/sidebar');
+        $this->load->view('admin/kelolaAdmin', $data);
+        $this->load->view('templates/footer');
+    }
 }

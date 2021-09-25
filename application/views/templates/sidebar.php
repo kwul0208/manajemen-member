@@ -7,6 +7,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
+                <a class="nav-link" href="<?= base_url('Admin/kelolaAdmin') ?>">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Kelola Admin
+                </a>
                 <div class="sb-sidenav-menu-heading">Menu</div>
                 <a class="nav-link" href="<?= base_url('Admin/manage') ?>" href="<?= base_url('Admin/manage') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>

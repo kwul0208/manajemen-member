@@ -46,4 +46,12 @@ class Data_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->delete('member');
     }
+
+
+    // kelola admin
+
+    public function getAdmins()
+    {
+        return $this->db->get('admin')->result_array();
+    }
 }
