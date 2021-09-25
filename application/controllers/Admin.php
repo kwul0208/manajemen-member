@@ -49,6 +49,7 @@ class Admin extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Data_model->model_tambah();
+            $this->session->set_flashdata('flash', 'ditambahkan');
             redirect('Admin/manage');
         }
     }
@@ -70,6 +71,7 @@ class Admin extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Data_model->model_edit($id);
+            $this->session->set_flashdata('flash', 'diubah');
             redirect('Admin/manage');
         }
     }
@@ -77,6 +79,7 @@ class Admin extends CI_Controller
     public function hapus($id)
     {
         $this->Data_model->model_hapus($id);
+        $this->session->set_flashdata('flash', 'dihapus');
         redirect('Admin/manage');
     }
 }

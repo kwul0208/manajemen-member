@@ -22,7 +22,7 @@
                             <tr>
                                 <td><?= $member['nama'] ?></td>
                                 <td><?= $member['posisi'] ?></td>
-                                <td>+62-<?= $member['whatsapp'] ?></td>
+                                <td><?= $member['whatsapp'] ?></td>
                                 <td><?= date("d/F/Y", strtotime($member['tanggal_gabung'])) ?></td>
                                 <td><?= $member['jurusan'] ?></td>
                             </tr>
