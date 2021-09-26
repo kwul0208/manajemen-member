@@ -14,10 +14,24 @@ class Auth extends CI_Controller
     {
         $data['title'] = 'Login';
 
-        $this->load->view('templates/auth_head', $data);
-        $this->load->view('auth/login');
-        $this->load->view('templates/auth_footer');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('templates/auth_head', $data);
+            $this->load->view('auth/login');
+            $this->load->view('templates/auth_footer');
+        } else {
+            $this->Auth_model->_login();
+        }
+
+        // cek session logout
+        if ($this->session->userdata('email')) {
+            redirect('Admin');
+        }
     }
+
+
+
 
     public function tambahAdmin()
     {
@@ -36,5 +50,15 @@ class Auth extends CI_Controller
             $this->session->set_flashdata('flash', 'ditambahkan');
             redirect('Admin/kelolaAdmin');
         }
+    }
+
+    public function logout()
+    {
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('role_id');
+        $this->session->set_flashdata('message', '<div class="alert alert-primary" role="alert">
+        berhasil keluar
+      </div>');
+        redirect('Auth');
     }
 }

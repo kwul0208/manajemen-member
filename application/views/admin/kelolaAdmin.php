@@ -1,7 +1,7 @@
 <main>
     <div class="container-fluid px-4">
         <h2>Kelola Admin</h2>
-        <a href="<?= base_url('Auth/tambahAdmin') ?>"><button class="btn btn-primary mb-2">Tambah Member</button></a>
+        <a href="<?= base_url('Auth/tambahAdmin') ?>"><button class="btn btn-primary mb-2">Tambah Admin</button></a>
         <?php if ($this->session->flashdata('flash')) : ?>
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                 <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -29,7 +29,7 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Data Member
+                Data Admin
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
@@ -40,6 +40,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php $i = 1 ?>
                         <?php foreach ($admins as $admin) : ?>
                             <tr>
                                 <td><?= $admin['nama'] ?></td>

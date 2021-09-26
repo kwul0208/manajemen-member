@@ -8,6 +8,7 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model('Data_model');
         $this->load->library('form_validation');
+        cek_loggin();
     }
 
     public function index()
