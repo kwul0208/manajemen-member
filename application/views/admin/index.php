@@ -11,20 +11,28 @@
                     <thead>
                         <tr>
                             <th>Nama</th>
-                            <th>Posisi</th>
-                            <th>No Whatsapp</th>
-                            <th>Tanggal Gabung</th>
-                            <th>Jurusan</th>
+                            <th>Email</th>
+                            <th>Tingkatan</th>
+                            <th>Status</th>
+                            <th>Option</th>
+
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($members as $member) : ?>
                             <tr>
                                 <td><?= $member['nama'] ?></td>
-                                <td><?= $member['posisi'] ?></td>
-                                <td><?= $member['whatsapp'] ?></td>
-                                <td><?= date("d/F/Y", strtotime($member['tanggal_gabung'])) ?></td>
-                                <td><?= $member['jurusan'] ?></td>
+                                <td><?= $member['email'] ?></td>
+                                <?php if ($member['role_id'] == 1) : ?>
+                                    <td>Admin</td>
+                                <?php else : ?>
+                                    <td>Member</td>
+                                <?php endif; ?>
+                                <td>
+
+                                    <a href="<?= base_url() ?>Admin/ubahStatusMember/<?= $member['id'] ?>"><?= $member['status'] ?></a>
+                                </td>
+
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

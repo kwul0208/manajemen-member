@@ -50,25 +50,20 @@
                 <thead>
                     <tr>
                         <th>Nama</th>
-                        <th>Posisi</th>
-                        <th>No Whatsapp</th>
-                        <th>Tanggal Gabung</th>
-                        <th>Jurusan</th>
-                        <th>aksi</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Option</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($members as $member) : ?>
                         <tr>
                             <td><?= $member['nama'] ?></td>
-                            <td><?= $member['posisi'] ?></td>
-                            <td><?= $member['whatsapp'] ?></td>
-                            <td><?= date("d/F/Y", strtotime($member['tanggal_gabung'])) ?></td>
-                            <td><?= $member['jurusan'] ?></td>
+                            <td><?= $member['email'] ?></td>
                             <td>
-                                <a onclick="confirm('yakin')" href="<?= base_url() ?>Admin/hapus/<?= $member['id'] ?>"><span class="badge bg-danger">Hapus</span></a>
-                                <a href="<?= base_url() ?>Admin/edit/<?= $member['id'] ?>"><span class="badge bg-warning">edit</span></a>
+                                <a href="<?= base_url() ?>Admin/ubahStatusAdmin/<?= $member['id'] ?>"><?= $member['status'] ?></a>
                             </td>
+
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -13,7 +13,7 @@ class Auth_model extends CI_Model
             "date_created" => time()
         ];
 
-        $this->db->insert('admin', $data);
+        $this->db->insert('user', $data);
     }
 
     public function _login()
@@ -21,7 +21,7 @@ class Auth_model extends CI_Model
         $email = $this->input->post('email');
         $password = $this->input->post('password');
 
-        $user = $this->db->get_where('admin', ['email' => $email])->row_array();
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
 
         if ($user) {
             if (password_verify($password, $user['password'])) {
