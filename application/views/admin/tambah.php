@@ -8,30 +8,22 @@
                 <small class="form-text text-danger"><?= form_error('nama'); ?></small>
 
             </div>
-            <fieldset disabled>
-                <div class="mb-2">
-                    <label for="posisi" class="form-label">Posisi: </label>
-                    <input type="text" name="posisi" id="posisi" class="form-control" value="Member">
-                    <small class="form-text text-danger"><?= form_error('posisi'); ?></small>
-
-                </div>
-            </fieldset>
             <div class="mb-2">
-                <label for="whatsapp" class="form-label">No Whatsapp</label>
-                <input type="text" class="form-control" name="whatsapp" id="whatsapp" placeholder="0828xxx...">
-                <small class="form-text text-danger"><?= form_error('whatsapp'); ?></small>
+                <label for="email" class="form-label">email: </label>
+                <input type="text" name="email" id="email" class="form-control" placeholder="email">
+                <small class="form-text text-danger"><?= form_error('email'); ?></small>
 
             </div>
             <div class="mb-2">
-                <label for="tanggal_gabung" class="form-label">Tanggal_gabung</label>
-                <input type="date" class="form-control" name="tanggal_gabung" id="tanggal_gabung" placeholder="name@example.com">
-                <small class="form-text text-danger"><?= form_error('tanggal_gabung'); ?></small>
+                <label for="password1" class="form-label"> password 1</label>
+                <input type="password" class="form-control" name="password1" id="password1" placeholder="masukan password 1">
+                <small class="form-text text-danger"><?= form_error('password1'); ?></small>
 
             </div>
             <div class="mb-2">
-                <label for="jurusan" class="form-label">Jurusan:</label>
-                <input type="text" class="form-control" name="jurusan" id="jurusan" placeholder="ex: Teknik Informatika">
-                <small class="form-text text-danger"><?= form_error('jurusan'); ?></small>
+                <label for="password2" class="form-label">password 2</label>
+                <input type="password" class="form-control" name="password2" id="password2" placeholder="name@example.com">
+                <small class="form-text text-danger"><?= form_error('password2'); ?></small>
 
             </div>
             <div class="mb-2 text-end">

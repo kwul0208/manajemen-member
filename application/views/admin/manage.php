@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-md-12 text-center">
-            <h2>Manage Member</h2>
+            <h2>Manage Admin</h2>
         </div>
 
     </div>
@@ -39,8 +39,8 @@
         <div class="card-body">
 
             <!-- Button trigger modal -->
-            <a href="<?= base_url('Admin/tambah') ?>"><button type="button" class="btn btn-primary mb-2">
-                    Tambah Member
+            <a href="<?= base_url('Admin/tambahAdmin') ?>"><button type="button" class="btn btn-primary mb-2">
+                    Tambah Admin
                 </button></a>
 
             <small class="form-text text-danger"><?= form_error('nama'); ?></small>
@@ -62,6 +62,9 @@
                             <td><?= $member['email'] ?></td>
                             <td>
                                 <a href="<?= base_url() ?>Admin/ubahStatusAdmin/<?= $member['id'] ?>"><?= $member['status'] ?></a>
+                            </td>
+                            <td>
+                                <a href="<?= base_url() ?>Admin/hapusUser/<?= $member['id'] ?>" onclick="confirm('yakin?')"> <span class="badge bg-danger">hapus</span></a>
                             </td>
 
                         </tr>

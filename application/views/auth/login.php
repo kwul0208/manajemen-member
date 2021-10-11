@@ -23,7 +23,8 @@
                                         <label for="inputPassword">Password</label>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                        <button type="submit">Login</button>
+                                        <button class="btn btn-primary" type="submit">Login</button>
+                                        <a href="<?= base_url('Auth/tambahUser') ?>">Daftar User</a>
                                     </div>
                                 </form>
                             </div>

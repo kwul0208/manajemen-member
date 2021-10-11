@@ -1,6 +1,8 @@
 <main>
     <div class="container-fluid px-4">
         <h2>Dashboard</h2>
+        <?= $this->session->flashdata('message'); ?>
+        <?php unset($_SESSION['message']); ?>
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -31,6 +33,10 @@
                                 <td>
 
                                     <a href="<?= base_url() ?>Admin/ubahStatusMember/<?= $member['id'] ?>"><?= $member['status'] ?></a>
+                                </td>
+                                <td>
+                                    <a href="<?= base_url() ?>Admin/editUser/<?= $member['id'] ?>"><span class="badge bg-primary">Edit</span></a>
+                                    <a href="<?= base_url() ?>Admin/hapusUser/<?= $member['id'] ?>" onclick="confirm('yakin?')"> <span class="badge bg-danger">hapus</span></a>
                                 </td>
 
                             </tr>

@@ -31,8 +31,6 @@ class Auth extends CI_Controller
     }
 
 
-
-
     public function tambahAdmin()
     {
         $data['title'] = 'Tambah Admin';
@@ -51,6 +49,26 @@ class Auth extends CI_Controller
             redirect('Admin/kelolaAdmin');
         }
     }
+
+    public function tambahUser()
+    {
+        $data['title'] = 'Tambah User';
+
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('password1', 'Password 1', 'required');
+        $this->form_validation->set_rules('password2', 'Password 2', 'required');
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('templates/auth_head', $data);
+            $this->load->view('auth/tambahUser');
+            $this->load->view('templates/auth_footer');
+        } else {
+            $this->Auth_model->tambahUser();
+            $this->session->set_flashdata('message', '<div class="alert alert-primary" role="alert">kamu berhasil mendaftar, silahkan tunggu konfirmasi oleh admin</div>');
+            redirect('Auth');
+        }
+    }
+
 
     public function logout()
     {

@@ -9,6 +9,11 @@ class Data_model extends CI_Model
         return $this->db->get_where('user', ['role_id' => 2])->result_array();
     }
 
+    public function getById($id)
+    {
+        return $this->db->get_where('user', ['id' => $id])->row_array();
+    }
+
     public function getAdmins()
     {
         return $this->db->get_where('user', ['role_id' => 1])->result_array();
@@ -32,6 +37,54 @@ class Data_model extends CI_Model
         $this->db->update('user', $data);
     }
 
+    public function tambahAdminModel()
+    {
+        $data = [
+            "nama" => $this->input->post('nama', true),
+            "email" => $this->input->post('email', true),
+            "image" => 'default.jpg',
+            "password" => password_hash($this->input->post('password1', true), PASSWORD_DEFAULT),
+            "date_created" => time(),
+            "role_id" => 1,
+            "status" => 'active'
+        ];
+
+        $this->db->insert('user', $data);
+    }
+
+    // pengumuman
+    public function newPengumuman()
+    {
+        $format = "Y-m-d H:i";
+
+        $data = [
+            'id_user' => $this->session->userdata['id'],
+            'nama' => $this->session->userdata['nama'],
+            'image' => $this->session->userdata['image'],
+            'post' => $this->input->post('post'),
+            'date_post' => date($format)
+        ];
+
+        $this->db->insert('pengumuman', $data);
+    }
+
+    public function getPengumuman()
+    {
+        return $this->db->get('pengumuman')->result_array();
+    }
+
+    // end
+
+    // for user only
+    public function editUserModel($id)
+    {
+        $data = [
+            "nama" => $this->input->post('nama')
+        ];
+        $this->db->where('id', $id);
+        $this->db->update('user', $data);
+    }
+
 
     // public function model_tambah()
     // {
@@ -46,10 +99,7 @@ class Data_model extends CI_Model
     //     $this->db->insert('member', $data);
     // }
 
-    // public function getById($id)
-    // {
-    //     return $this->db->get_where('member', ['id' => $id])->row_array();
-    // }
+
 
     // public function model_edit($id)
     // {
