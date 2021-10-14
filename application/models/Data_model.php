@@ -59,9 +59,7 @@ class Data_model extends CI_Model
 
         $data = [
             'id_user' => $this->session->userdata['id'],
-            'nama' => $this->session->userdata['nama'],
-            'image' => $this->session->userdata['image'],
-            'post' => $this->input->post('post'),
+            'post' => $this->input->post('post', true),
             'date_post' => date($format)
         ];
 
@@ -70,7 +68,36 @@ class Data_model extends CI_Model
 
     public function getPengumuman()
     {
+        $this->db->order_by('date_post', 'DESC');
         return $this->db->get('pengumuman')->result_array();
+    }
+
+    public function getPengumumanById($id)
+    {
+        return $this->db->get_Where('pengumuman', ['id' => $id])->row_array();
+    }
+
+    public function postKomentar($id)
+    {
+        $format = "Y-m-d H:i";
+        $data = [
+            'id_user' => $this->session->userdata['id'],
+            'id_komentar' => $id,
+            'komentar' => $this->input->post('komen', true),
+            'date_post' => date($format)
+        ];
+
+        $this->db->insert('komentar', $data);
+    }
+
+    public function getAllKomentar()
+    {
+        return $this->db->get('komentar')->result_array();
+    }
+
+    public function getKomentarById($id)
+    {
+        return $this->db->get_where('komentar', ['id_komentar' => $id])->result_array();
     }
 
     // end
@@ -84,48 +111,4 @@ class Data_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('user', $data);
     }
-
-
-    // public function model_tambah()
-    // {
-    //     $data = [
-    //         "nama" => $this->input->post('nama', true),
-    //         "posisi" => 'Member',
-    //         "whatsapp" => $this->input->post('whatsapp', true),
-    //         "tanggal_gabung" => $this->input->post('tanggal_gabung', true),
-    //         "jurusan" => $this->input->post('jurusan', true),
-    //     ];
-
-    //     $this->db->insert('member', $data);
-    // }
-
-
-
-    // public function model_edit($id)
-    // {
-    //     $data = [
-    //         "nama" => $this->input->post('nama', true),
-    //         "posisi" => 'Member',
-    //         "whatsapp" => $this->input->post('whatsapp', true),
-    //         "tanggal_gabung" => $this->input->post('tanggal_gabung', true),
-    //         "jurusan" => $this->input->post('jurusan', true),
-    //     ];
-
-    //     $this->db->where('id', $id);
-    //     $this->db->update('member', $data);
-    // }
-
-    // public function model_hapus($id)
-    // {
-    //     $this->db->where('id', $id);
-    //     $this->db->delete('member');
-    // }
-
-
-    // // kelola admin
-
-    // public function getAdmins()
-    // {
-    //     return $this->db->get('admin')->result_array();
-    // }
 }

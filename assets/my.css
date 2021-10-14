@@ -1,4 +1,4 @@
-/* pengumuman page*/
+/* pengumuman page */
 .input_post_area{
    width: 400px;
 }
@@ -6,13 +6,13 @@
 .top-card{
     display: flex;
     /* background: #999; */
-    width: 20%;
+    width: 100%;
     height: 100%;
     margin: 10px;
 }
 
 .img_thumb_pengumuman{
-    width: 70px;
+    width: 70px !important;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -20,3 +20,9 @@
 .post{
     margin: 10px 20px;
 }
+
+.buton{
+    position:absolute;
+    right:0;
+}
+

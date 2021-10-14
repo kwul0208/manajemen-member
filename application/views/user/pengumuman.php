@@ -12,18 +12,40 @@
 </div>
 
 <?php foreach ($pengumuman as $p) : ?>
+    <!-- join -->
+    <?php
+    $id_poster = $p['id_user'];
+
+    $identitas = "SELECT `user`. `nama`, `user`.`image` 
+        FROM `user`
+        JOIN `pengumuman`
+        ON `user` . `id` = `pengumuman` . `id_user`
+        WHERE `user` . `id` = $id_poster
+        ";
+
+    $identitasPost = $this->db->query($identitas)->row_array();
+
+    ?>
+
     <div class="card mb-3 m-5">
         <div class="top-card">
             <div class="img-card">
-                <img src="<?= base_url() ?>assets/img/profile/<?= $p['image'] ?>" class="img_thumb_pengumuman">
+                <img src="<?= base_url() ?>assets/img/profile/<?= $identitasPost['image'] ?>" class="img_thumb_pengumuman">
             </div>
             <div class="name-card">
-                <h5 class="name_anounc"><?= $p['nama'] ?></h5>
+                <h5 class="name_anounc"><?= $identitasPost['nama'] ?></h5>
                 <p><?= $p['date_post'] ?></p>
             </div>
         </div>
         <div class="post-card">
             <p class="post"><?= $p['post'] ?></p>
+            <div class="buton d-flex justify-content-end mt-2">
+                <!-- query untuk mendapatkan jumbal komentar pada setiap postingan -->
+                <?php
+                $x = $this->db->get_where('komentar', ['id_komentar' => $p['id']])->result_array();
+                ?>
+                <a href="<?= base_url('User/komentar/') ?><?= $p['id'] ?>/<?= $p['id_user'] ?>"><button class="btn btn-secondary btn-sm"> <?= count($x) ?> komentar</button></a>
+            </div>
         </div>
     </div>
 
