@@ -1,0 +1,9 @@
+figure img{
+    margin:0 50px;
+    border-radius: 10px;
+    width: 40vw !important;
+}
+
+.post-card p{
+    margin-left: 20px !important;
+}

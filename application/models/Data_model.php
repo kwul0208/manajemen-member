@@ -59,7 +59,7 @@ class Data_model extends CI_Model
 
         $data = [
             'id_user' => $this->session->userdata['id'],
-            'post' => $this->input->post('post', true),
+            'post' => str_replace('&nbsp;', ' ', $this->input->post('post')),
             'date_post' => date($format)
         ];
 
