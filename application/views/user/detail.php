@@ -6,7 +6,6 @@
         </div>
         <div class="col-md-8">
             <div class="card-body">
-
                 <h3 class="card-title"><?= $user['nama'] ?> </h3><span class="badge rounded-pill bg-warning text-dark mb-3"><?= $user['jabatan'] ?></span>
                 <p class="card-text">Email : <?= $user['email'] ?> </p>
                 <p class="card-text">Alamat : <?= $user['alamat'] ?> </p>
@@ -14,7 +13,6 @@
                 <p class="card-text">Hobi : <?= $user['hobi'] ?> </p>
                 <p class="card-text"><small class="text-muted">Status: <?= $user['status'] ?></small></p>
             </div>
-            <a href="<?= base_url() ?>User/editProfile"><button class="btn btn-primary ms-3">Edit Profile</button></a>
         </div>
     </div>
 </div>

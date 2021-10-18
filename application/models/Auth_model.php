@@ -61,6 +61,16 @@ class Auth_model extends CI_Model
                         ];
                         $this->session->set_userdata($data);
                         redirect('User');
+                    } else if ($user['role_id'] === '3') {
+                        $data = [
+                            'id' => $user['id'],
+                            'email' => $user['email'],
+                            'role_id' => $user['role_id'],
+                            'nama' => $user['nama'],
+                            'image' => $user['image']
+                        ];
+                        $this->session->set_userdata($data);
+                        redirect('Admin');
                     }
                 } else {
                     $this->session->set_flashdata('message',  '<p> kamu belum diverifikasi admin, tunggu yah</p>');

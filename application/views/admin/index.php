@@ -15,6 +15,7 @@
                             <th>Nama</th>
                             <th>Email</th>
                             <th>Tingkatan</th>
+                            <th>Jabatan</th>
                             <th>Status</th>
                             <th>Option</th>
 
@@ -26,16 +27,20 @@
                                 <td><?= $member['nama'] ?></td>
                                 <td><?= $member['email'] ?></td>
                                 <?php if ($member['role_id'] == 1) : ?>
-                                    <td>Admin</td>
+                                    <td>Guru</td>
                                 <?php else : ?>
-                                    <td>Member</td>
+                                    <td>Siswa</td>
                                 <?php endif; ?>
+                                <td class="d-flex">
+                                    <p class=" me-auto bd-highlight"><?= $member['jabatan'] ?></p>
+                                    <a href="<?= base_url() ?>Admin/editUser/<?= $member['id'] ?>"><span class="badge bg-primary">Ubah</span></a>
+                                </td>
                                 <td>
 
                                     <a href="<?= base_url() ?>Admin/ubahStatusMember/<?= $member['id'] ?>"><?= $member['status'] ?></a>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url() ?>Admin/editUser/<?= $member['id'] ?>"><span class="badge bg-primary">Edit</span></a>
+                                    <a href="<?= base_url() ?>User/detail/<?= $member['id'] ?>"><span class="badge bg-primary">Detail</span></a>
                                     <a href="<?= base_url() ?>Admin/hapusUser/<?= $member['id'] ?>" onclick="confirm('yakin?')"> <span class="badge bg-danger">hapus</span></a>
                                 </td>
 

@@ -34,12 +34,12 @@ class Admin extends CI_Controller
         $this->load->view('templates/footer');
     }
 
-    public function editUser($id)
+    public function EditUser($id)
     {
         $data['title'] = 'Edit User';
         $data['user'] = $this->Data_model->getById($id);
 
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('role_id', 'role_id', 'required');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('templates/header');

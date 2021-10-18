@@ -50,7 +50,7 @@
         <div class="card mb-3 mt-4 ms-3 me-3">
             <div class="top-card">
                 <div class="img-card">
-                    <img src="<?= base_url() ?>assets/img/profile/default.jpg" class="img_thumb_pengumuman">
+                    <img src="<?= base_url() ?>assets/img/profile/<?= $identitasPost['image'] ?>" class="img_thumb_pengumuman">
                 </div>
                 <div class="name-card">
                     <h5 class="name_anounc"><?= $identitasPost['nama'] ?></h5>

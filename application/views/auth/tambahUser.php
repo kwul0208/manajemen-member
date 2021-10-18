@@ -40,11 +40,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mt-4 mb-0">
-                                            <button type="submit"><?= $title ?></button>
+                                        <div class="mt-4 mb-0 d-flex ">
+                                            <a href="<?= base_url('Auth') ?>" class="btn btn-secondary me-auto p-2 bd-highlight">kembali </a>
+                                            <button type="submit" class="btn btn-primary "><?= $title ?></button>
                                         </div>
                                 </form>
-                                <a href="<?= base_url('Auth') ?>"> keluar </a>
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                    <div class="text-muted">Copyright &copy; Ahmad Wahyu 2021</div>
                     <div>
                         <a href="#">Privacy Policy</a>
                         &middot;

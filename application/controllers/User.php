@@ -26,6 +26,19 @@ class User extends CI_Controller
     }
 
 
+    public function detail($id)
+    {
+        $data['title'] = 'Profile';
+        $data['user'] = $this->Data_model->getById($id);
+
+        $this->load->view('templates/header');
+        $this->load->view('templates/navbar');
+        $this->load->view('templates/sidebar');
+        $this->load->view('user/detail', $data);
+        $this->load->view('templates/footer');
+    }
+
+
     public function editProfile()
     {
         $data['title'] = 'Edit Profile';
@@ -41,6 +54,9 @@ class User extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $nama = $this->input->post('nama');
+            $alamat = $this->input->post('alamat');
+            $kelas = $this->input->post('kelas');
+            $hobi = $this->input->post('hobi');
             $email = $this->session->userdata('email');
 
             $upload_image = $_FILES['image']['name'];
@@ -66,6 +82,9 @@ class User extends CI_Controller
                 }
             }
             $this->db->set('nama', $nama);
+            $this->db->set('alamat', $alamat);
+            $this->db->set('kelas', $kelas);
+            $this->db->set('hobi', $hobi);
             $this->db->where('email', $email);
             $this->db->update('user');
 
@@ -110,7 +129,7 @@ class User extends CI_Controller
         } else {
             $this->Data_model->postKomentar($id);
 
-            $this->session->set_flashdata('message', '<div class="alert alert-primary m-3" role="alert">Post anda sukses terkirim</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-primary m-3" role="alert">Komentar anda sukses terkirim</div>');
             redirect('User/komentar/' . $id . '/' . $this->session->userdata['id']);
         }
     }

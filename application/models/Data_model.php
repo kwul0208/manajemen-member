@@ -6,7 +6,7 @@ class Data_model extends CI_Model
 {
     public function getAllData()
     {
-        return $this->db->get_where('user', ['role_id' => 2])->result_array();
+        return $this->db->get_where('user', ['role_id !=' => 1])->result_array();
     }
 
     public function getById($id)
@@ -106,7 +106,7 @@ class Data_model extends CI_Model
     public function editUserModel($id)
     {
         $data = [
-            "nama" => $this->input->post('nama')
+            "role_id" => $this->input->post('role_id')
         ];
         $this->db->where('id', $id);
         $this->db->update('user', $data);
