@@ -30,6 +30,8 @@
     </div>
     <div class="post-card">
         <p class="post"><?= $pengumuman['post'] ?></p>
+        <img src="<?= base_url('assets/img/pengumuman/') ?><?= $pengumuman['image'] ?>" alt="" class="img-thumbnail">
+
         <hr>
     </div>
 

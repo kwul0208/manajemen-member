@@ -51,7 +51,7 @@
             <div class="input-group mb-3">
                 <label for="role_id" class="col-sm-2 col-form-label">Jabatan</label>
                 <select class="form-select" id="role_id" name="role_id">
-                    <option value="3" selected>Ketua</option>
+                    <option value="3" value="ketua" selected>Ketua</option>
                     <option value="3">Wakil Ketua</option>
                     <option value="3">Bendahara</option>
                     <option value="3">Sekertaris</option>

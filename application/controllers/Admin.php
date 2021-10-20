@@ -13,9 +13,10 @@ class Admin extends CI_Controller
 
     public function index()
     {
+        $data['title'] = 'Dashboard';
         $data['members'] = $this->Data_model->getAllData();
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar');
         $this->load->view('templates/sidebar');
         $this->load->view('admin/index', $data);
@@ -27,7 +28,7 @@ class Admin extends CI_Controller
         $data['members'] = $this->Data_model->getAdmins();
         $data['title'] = "Manage Member";
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar');
         $this->load->view('templates/sidebar');
         $this->load->view('admin/manage', $data);
@@ -42,7 +43,7 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('role_id', 'role_id', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $data);
             $this->load->view('templates/navbar');
             $this->load->view('templates/sidebar');
             $this->load->view('admin/edit', $data);
@@ -89,7 +90,7 @@ class Admin extends CI_Controller
 
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $data);
             $this->load->view('templates/navbar');
             $this->load->view('templates/sidebar');
             $this->load->view('admin/tambah', $data);

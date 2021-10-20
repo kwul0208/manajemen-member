@@ -56,10 +56,23 @@ class Data_model extends CI_Model
     public function newPengumuman()
     {
         $format = "Y-m-d H:i";
+        $upload_image = $_FILES['image']['name'];
+
+        if ($upload_image) {
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = '2048';
+            $config['upload_path'] = './assets/img/pengumuman';
+
+            $this->load->library('upload', $config);
+            if ($this->upload->do_upload('image')) {
+                $new_image = $this->upload->data('file_name');
+            }
+        }
 
         $data = [
             'id_user' => $this->session->userdata['id'],
-            'post' => str_replace('&nbsp;', ' ', $this->input->post('post')),
+            'post' => $this->input->post('post'),
+            'image' => $new_image,
             'date_post' => date($format)
         ];
 
@@ -106,7 +119,8 @@ class Data_model extends CI_Model
     public function editUserModel($id)
     {
         $data = [
-            "role_id" => $this->input->post('role_id')
+            "role_id" => $this->input->post('role_id'),
+            "jabatan" => $this->input->post('role_id')
         ];
         $this->db->where('id', $id);
         $this->db->update('user', $data);

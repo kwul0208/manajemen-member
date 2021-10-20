@@ -18,7 +18,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar');
         $this->load->view('templates/sidebar');
         $this->load->view('user/index', $data);
@@ -31,7 +31,7 @@ class User extends CI_Controller
         $data['title'] = 'Profile';
         $data['user'] = $this->Data_model->getById($id);
 
-        $this->load->view('templates/header');
+        $this->load->view('templates/header', $data);
         $this->load->view('templates/navbar');
         $this->load->view('templates/sidebar');
         $this->load->view('user/detail', $data);
@@ -47,7 +47,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('nama', 'Nama', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $data);
             $this->load->view('templates/navbar');
             $this->load->view('templates/sidebar');
             $this->load->view('user/editProfile', $data);
@@ -101,7 +101,7 @@ class User extends CI_Controller
 
         $this->form_validation->set_rules('post', 'Post', 'required');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $data);
             $this->load->view('templates/navbar');
             $this->load->view('templates/sidebar');
             $this->load->view('user/pengumuman', $data);
@@ -121,7 +121,7 @@ class User extends CI_Controller
 
         $this->form_validation->set_rules('komen', 'Komantar', 'required');
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header');
+            $this->load->view('templates/header', $data);
             $this->load->view('templates/navbar');
             $this->load->view('templates/sidebar');
             $this->load->view('user/komentar', $data);
