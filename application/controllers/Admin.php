@@ -39,6 +39,8 @@ class Admin extends CI_Controller
     {
         $data['title'] = 'Edit User';
         $data['user'] = $this->Data_model->getById($id);
+        $data['allRole'] = $this->Data_model->getAllData();
+        $data['role'] = $this->db->get('user_role')->result_array();
 
         $this->form_validation->set_rules('role_id', 'role_id', 'required');
 
@@ -49,6 +51,8 @@ class Admin extends CI_Controller
             $this->load->view('admin/edit', $data);
             $this->load->view('templates/footer');
         } else {
+            // if ($data['user']['role_id'] === '3') {
+            // }
             $this->Data_model->editUserModel($id);
             $this->session->set_flashdata('message', '<div class="alert alert-primary" role="alert">
             berhasil diubah

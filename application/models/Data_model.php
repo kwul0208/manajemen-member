@@ -67,6 +67,8 @@ class Data_model extends CI_Model
             if ($this->upload->do_upload('image')) {
                 $new_image = $this->upload->data('file_name');
             }
+        } else if (!$upload_image) {
+            $new_image = 'nul';
         }
 
         $data = [
@@ -120,7 +122,6 @@ class Data_model extends CI_Model
     {
         $data = [
             "role_id" => $this->input->post('role_id'),
-            "jabatan" => $this->input->post('role_id')
         ];
         $this->db->where('id', $id);
         $this->db->update('user', $data);

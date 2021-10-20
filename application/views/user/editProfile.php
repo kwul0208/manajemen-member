@@ -48,14 +48,6 @@
         </div>
     </div>
     <div class="mb-3 mt-3 row">
-        <label for="jabatan" class="col-sm-2 col-form-label">Jabatan</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="jabatan" name="jabatan" value="<?= $user['jabatan'] ?>" disabled>
-            <?= form_error('name') ?>
-
-        </div>
-    </div>
-    <div class="mb-3 mt-3 row">
         <label for="status" class="col-sm-2 col-form-label">Profile</label>
         <div class="col-sm-10">
             <div class="w-50">

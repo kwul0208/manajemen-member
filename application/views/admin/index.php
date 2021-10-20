@@ -26,13 +26,21 @@
                             <tr>
                                 <td><?= $member['nama'] ?></td>
                                 <td><?= $member['email'] ?></td>
-                                <?php if ($member['role_id'] == 1) : ?>
-                                    <td>Guru</td>
-                                <?php else : ?>
+                                <?php if ($member['role_id'] !== '1') : ?>
                                     <td>Siswa</td>
                                 <?php endif; ?>
                                 <td class="d-flex">
-                                    <p class=" me-auto bd-highlight"><?= $member['jabatan'] ?></p>
+                                    <?php if ($member['role_id'] === '2') : ?>
+                                        <p class=" me-auto bd-highlight">Anggota</p>
+                                    <?php elseif ($member['role_id'] === '3') : ?>
+                                        <p class=" me-auto bd-highlight">Ketua</p>
+                                    <?php elseif ($member['role_id'] === '4') : ?>
+                                        <p class=" me-auto bd-highlight">Wakil</p>
+                                    <?php elseif ($member['role_id'] === '5') : ?>
+                                        <p class=" me-auto bd-highlight">Sekertaris</p>
+                                    <?php elseif ($member['role_id'] === '6') : ?>
+                                        <p class=" me-auto bd-highlight">Bendahara</p>
+                                    <?php endif; ?>
                                     <a href="<?= base_url() ?>Admin/editUser/<?= $member['id'] ?>"><span class="badge bg-primary">Ubah</span></a>
                                 </td>
                                 <td>

@@ -7,8 +7,19 @@
         <div class="col-md-8">
             <div class="card-body">
 
-                <h3 class="card-title"><?= $user['nama'] ?> </h3><span class="badge rounded-pill bg-warning text-dark mb-3"><?= $user['jabatan'] ?></span>
-                <p class="card-text">Email : <?= $user['email'] ?> </p>
+                <?php if ($user['role_id'] === '1') : ?>
+                    <h3 class="card-title"><?= $user['nama'] ?> </h3><span class="badge rounded-pill bg-warning text-dark mb-3">Admin</span>
+                <?php elseif ($user['role_id'] === '2') : ?>
+                    <h3 class="card-title"><?= $user['nama'] ?> </h3><span class="badge rounded-pill bg-warning text-dark mb-3">Anggota</span>
+                <?php elseif ($user['role_id'] === '3') : ?>
+                    <h3 class="card-title"><?= $user['nama'] ?> </h3><span class="badge rounded-pill bg-warning text-dark mb-3">Ketua</span>
+                <?php elseif ($user['role_id'] === '4') : ?>
+                    <h3 class="card-title"><?= $user['nama'] ?> </h3><span class="badge rounded-pill bg-warning text-dark mb-3">Wakil Ketua</span>
+                <?php elseif ($user['role_id'] === '5') : ?>
+                    <h3 class="card-title"><?= $user['nama'] ?> </h3><span class="badge rounded-pill bg-warning text-dark mb-3">Sekertaris</span>
+                <?php elseif ($user['role_id'] === '6') : ?>
+                    <h3 class="card-title"><?= $user['nama'] ?> </h3><span class="badge rounded-pill bg-warning text-dark mb-3">Bendahara</span>
+                <?php endif; ?> <p class="card-text">Email : <?= $user['email'] ?> </p>
                 <p class="card-text">Alamat : <?= $user['alamat'] ?> </p>
                 <p class="card-text">Kelas : <?= $user['kelas'] ?> </p>
                 <p class="card-text">Hobi : <?= $user['hobi'] ?> </p>

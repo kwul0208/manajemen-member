@@ -1,4 +1,4 @@
-figure img{
+/* figure img{
     margin:0 50px;
     border-radius: 10px;
     width: 40vw !important;
@@ -6,4 +6,12 @@ figure img{
 
 .post-card p{
     margin-left: 20px !important;
+} */
+
+a{
+    color: rgb(49, 49, 49);
+    text-decoration: none;
+}
+a:hover{
+    color: rgb(29, 28, 28);
 }

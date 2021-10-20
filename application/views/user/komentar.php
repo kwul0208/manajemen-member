@@ -8,7 +8,7 @@
     <?php
     $id_poster = $this->uri->segment(4);
 
-    $identitas = "SELECT `user`. `nama`, `user`.`image` 
+    $identitas = "SELECT `user`. `nama`, `user`.`image`, `user`.`id` 
         FROM `user`
         JOIN `pengumuman`
         ON `user` . `id` = `pengumuman` . `id_user`
@@ -24,7 +24,7 @@
             <img src="<?= base_url() ?>assets/img/profile/<?= $identitasPost['image'] ?>" class="img_thumb_pengumuman">
         </div>
         <div class="name-card">
-            <h5 class="name_anounc"><?= $identitasPost['nama'] ?></h5>
+            <h5 class="name_anounc"><a href="<?= base_url() ?>user/detail/<?= $identitasPost['id']  ?>"><?= $identitasPost['nama'] ?></a></h5>
             <p><?= $pengumuman['date_post'] ?></p>
         </div>
     </div>
@@ -39,7 +39,7 @@
         <?php
         $id_poster = $k['id_user'];
 
-        $identitas = "SELECT `user`. `nama`, `user`.`image` 
+        $identitas = "SELECT `user`. `nama`, `user`.`image`, `user`.`id` 
         FROM `user`
         JOIN `pengumuman`
         ON `user` . `id` = `pengumuman` . `id_user`
@@ -55,7 +55,7 @@
                     <img src="<?= base_url() ?>assets/img/profile/<?= $identitasPost['image'] ?>" class="img_thumb_pengumuman">
                 </div>
                 <div class="name-card">
-                    <h5 class="name_anounc"><?= $identitasPost['nama'] ?></h5>
+                    <h5 class="name_anounc"><a href="<?= base_url() ?>user/detail/<?= $identitasPost['id']  ?>"><?= $identitasPost['nama'] ?></a></h5>
                     <p><?= $k['date_post'] ?></p>
                 </div>
             </div>

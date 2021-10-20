@@ -3,7 +3,7 @@
 <?php endif; ?>
 <?= $this->session->flashdata('message') ?>
 <?php unset($_SESSION['message']) ?>
-<div class="card mb-3 m-5 d-flex">
+<div class="card mb-3 d-flex">
     <?php echo form_open_multipart('User/Pengumuman') ?>
     <div class="row m-3">
         <div class="col-md-6 ">
@@ -25,7 +25,7 @@
         <?php
         $id_poster = $p['id_user'];
 
-        $identitas = "SELECT `user`. `nama`, `user`.`image` 
+        $identitas = "SELECT `user`. `nama`, `user`.`image`, `user`.`id`
         FROM `user`
         JOIN `pengumuman`
         ON `user` . `id` = `pengumuman` . `id_user`
@@ -39,10 +39,10 @@
         <div class="card mb-3 m-5">
             <div class="top-card">
                 <div class="img-card">
-                    <img src="<?= base_url() ?>assets/img/profile/<?= $identitasPost['image'] ?>" class="img_thumb_pengumuman">
+                    <img src="<?= base_url() ?>assets/img/profile/<?= $identitasPost['image'] ?>" class="img-thumbnail img_thumb_pengumuman">
                 </div>
                 <div class="name-card">
-                    <h5 class="name_anounc"><?= $identitasPost['nama'] ?></h5>
+                    <h5 class="name_anounc"><a href="<?= base_url() ?>user/detail/<?= $identitasPost['id']  ?>"><?= $identitasPost['nama'] ?></a></h5>
                     <p><?= $p['date_post'] ?></p>
                 </div>
             </div>
