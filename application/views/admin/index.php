@@ -49,6 +49,7 @@
                                 </td>
                                 <td>
                                     <a href="<?= base_url() ?>User/detail/<?= $member['id'] ?>"><span class="badge bg-primary">Detail</span></a>
+                                    <a href="https://web.whatsapp.com/send?phone=<?= $member['wa'] ?>" target="_blank"> <span class="badge bg-success">WA</span></a>
                                     <a href="<?= base_url() ?>Admin/hapusUser/<?= $member['id'] ?>" onclick="confirm('yakin?')"> <span class="badge bg-danger">hapus</span></a>
                                 </td>
 

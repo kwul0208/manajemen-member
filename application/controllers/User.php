@@ -119,6 +119,13 @@ class User extends CI_Controller
         $data['pengumuman'] = $this->Data_model->getPengumumanById($id);
         $data['komentar'] = $this->Data_model->getKomentarById($id);
 
+        $post = [
+            'id' => $this->uri->segment(4)
+        ];
+
+        $this->session->set_userdata($post);
+
+
         $this->form_validation->set_rules('komen', 'Komantar', 'required');
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('templates/header', $data);

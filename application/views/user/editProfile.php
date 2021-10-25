@@ -31,14 +31,16 @@
 
         </div>
     </div>
-    <div class="mb-3 mt-3 row">
-        <label for="kelas" class="col-sm-2 col-form-label">Kelas</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="kelas" name="kelas" value="<?= $user['kelas'] ?>">
-            <?= form_error('name') ?>
+    <?php if ($user['role_id'] !== '1') : ?>
+        <div class="mb-3 mt-3 row">
+            <label for="kelas" class="col-sm-2 col-form-label">Kelas</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="kelas" name="kelas" value="<?= $user['kelas'] ?>">
+                <?= form_error('name') ?>
 
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
     <div class="mb-3 mt-3 row">
         <label for="hobi" class="col-sm-2 col-form-label">Hobi</label>
         <div class="col-sm-10">
